@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +16,17 @@
             scroll-behavior: smooth;
             overflow-x: hidden;
             width: 100%;
+        }
+
+        /* Up and Down Floating Animation */
+        @keyframes floatVertical {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animate-float {
+            animation: floatVertical 5s ease-in-out infinite;
         }
 
         .reeni-gradient {
@@ -63,7 +73,7 @@
     <nav class="fixed w-full z-[100] px-4 md:px-8 py-4 bg-[#030303]/80 backdrop-blur-xl border-b border-white/5">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="text-lg font-extrabold tracking-tighter uppercase">0xDruid.eth</div>
-            <a href="mailto:zaprince822@gmail.com" class="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 border border-white/10 px-3 py-1.5 rounded-full hover:text-white hover:border-white transition">Contact</a>
+            <a href="https://x.com/0xdruid1" target="_blank" class="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 border border-white/10 px-3 py-1.5 rounded-full hover:text-white hover:border-white transition">Message Me</a>
         </div>
     </nav>
 
@@ -86,7 +96,7 @@
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                    <a href="mailto:zaprince822@gmail.com" class="w-full sm:w-auto text-center bg-white text-black px-10 py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-gray-200 transition-all">Message Me</a>
+                    <a href="https://x.com/0xdruid1" target="_blank" class="w-full sm:w-auto text-center bg-white text-black px-10 py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-gray-200 transition-all">Message Me</a>
                     <div class="flex gap-8 text-xl text-gray-600 pl-2 sm:pl-0">
                         <a href="https://github.com/0xDruidb" target="_blank" class="hover:text-white transition-all"><i class="fab fa-github"></i></a>
                         <a href="https://x.com/0xdruid1" target="_blank" class="hover:text-white transition-all"><i class="fab fa-x-twitter"></i></a>
@@ -96,8 +106,10 @@
             </div>
             
             <div class="lg:col-span-5 w-full max-w-[400px] lg:max-w-full mx-auto">
-                <div class="relative group aspect-square rounded-[2rem] overflow-hidden border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-700 shadow-2xl">
-                    <img src="https://lh3.googleusercontent.com/d/1SCYEmHlisb_f5e43QhGeiO7zljMpNt_5" alt="0xDruid Avatar" class="w-full h-full object-cover">
+                <div class="animate-float">
+                    <div class="relative group aspect-square rounded-[2rem] overflow-hidden border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-700 shadow-2xl">
+                        <img src="https://lh3.googleusercontent.com/d/1SCYEmHlisb_f5e43QhGeiO7zljMpNt_5" alt="0xDruid Avatar" class="w-full h-full object-cover">
+                    </div>
                 </div>
             </div>
         </section>
@@ -115,13 +127,13 @@
                 <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="builder">
                     <div class="text-[9px] font-bold text-gray-500 mb-4 tracking-[0.3em]">02 / PAYMENTS</div>
                     <h3 class="text-xl md:text-2xl font-bold mb-2">BravPay</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Founder; building a Telegram-based crypto payment bot for seamless social and group transactions.</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Founder; building a Telegram-based crypto payment bot for seamless social transactions.</p>
                 </div>
 
                 <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="builder">
                     <div class="text-[9px] font-bold text-gray-500 mb-4 tracking-[0.3em]">03 / PRODUCT QA</div>
                     <h3 class="text-xl md:text-2xl font-bold mb-2">Artura Finance</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Beta tester contributing to long-term testing, feedback, and feature validation for product excellence.</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Beta tester contributing to long-term testing, feedback, and feature validation.</p>
                 </div>
 
                 <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="creator">
@@ -133,7 +145,7 @@
                 <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="creator">
                     <div class="text-[9px] font-bold text-gray-600 mb-4 tracking-[0.3em]">05 / STRATEGY</div>
                     <h3 class="text-xl md:text-2xl font-bold mb-2">ClayStack</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Ambassador and content creator focused on liquid staking education and community growth.</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Ambassador and content creator focused on liquid staking education and growth.</p>
                 </div>
 
                 <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="community">
@@ -149,7 +161,7 @@
                 </div>
 
                 <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="community">
-                    <div class="text-[9px] font-bold text-gray-500 mb-4 tracking-[0.3em]">08 / UNIVERSITY</div>
+                    <div class="text-[9px] font-bold text-gray-600 mb-4 tracking-[0.3em]">08 / UNIVERSITY</div>
                     <h3 class="text-xl md:text-2xl font-bold mb-2">Pontem Network</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Lead community builder for the University Hub; onboarded users and produced high-impact content.</p>
                 </div>
