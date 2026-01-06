@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,7 @@
             background-color: #030303;
             color: #ffffff;
             scroll-behavior: smooth;
-            overflow-x: hidden; /* Prevents horizontal scroll */
+            overflow-x: hidden;
             width: 100%;
         }
 
@@ -31,6 +32,12 @@
             height: 100%;
         }
 
+        .bento-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(28, 28, 28, 0.6);
+            transform: translateY(-5px);
+        }
+
         .vibe-btn {
             transition: all 0.3s ease;
             white-space: nowrap;
@@ -45,7 +52,6 @@
             display: none;
         }
 
-        /* Prevent large text from breaking layout on small phones */
         .break-word {
             word-wrap: break-word;
             word-break: break-word;
@@ -101,40 +107,59 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8" id="project-grid">
                 
                 <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="builder">
-                    <div class="text-[9px] font-bold text-gray-500 mb-4 tracking-[0.3em]">01 / LEAD</div>
+                    <div class="text-[9px] font-bold text-gray-500 mb-4 tracking-[0.3em]">01 / FOUNDER</div>
                     <h3 class="text-xl md:text-2xl font-bold mb-2">ChainCredit</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Founder; assembling developers and shaping product direction for future-facing on-chain credit tools.</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Founder & Lead; assembling developers and shaping product direction for next-gen credit systems.</p>
                 </div>
 
                 <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="builder">
                     <div class="text-[9px] font-bold text-gray-500 mb-4 tracking-[0.3em]">02 / PAYMENTS</div>
                     <h3 class="text-xl md:text-2xl font-bold mb-2">BravPay</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Founder; building a Telegram-based crypto payment bot for seamless social transactions.</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Founder; building a Telegram-based crypto payment bot for seamless social and group transactions.</p>
+                </div>
+
+                <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="builder">
+                    <div class="text-[9px] font-bold text-gray-500 mb-4 tracking-[0.3em]">03 / PRODUCT QA</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2">Artura Finance</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Beta tester contributing to long-term testing, feedback, and feature validation for product excellence.</p>
                 </div>
 
                 <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="creator">
-                    <div class="text-[9px] font-bold text-gray-600 mb-4 tracking-[0.3em]">03 / DEX</div>
+                    <div class="text-[9px] font-bold text-gray-600 mb-4 tracking-[0.3em]">04 / CONTENT</div>
                     <h3 class="text-xl md:text-2xl font-bold mb-2">Ston.fi</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Community contributor and creator supporting DEX awareness and user education.</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Community contributor supporting DEX awareness and user education through strategic content.</p>
                 </div>
 
                 <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="creator">
-                    <div class="text-[9px] font-bold text-gray-600 mb-4 tracking-[0.3em]">04 / LST</div>
+                    <div class="text-[9px] font-bold text-gray-600 mb-4 tracking-[0.3em]">05 / STRATEGY</div>
                     <h3 class="text-xl md:text-2xl font-bold mb-2">ClayStack</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Ambassador and content creator focused on liquid staking education and growth.</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Ambassador and content creator focused on liquid staking education and community growth.</p>
                 </div>
 
                 <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="community">
-                    <div class="text-[9px] font-bold text-gray-500 mb-4 tracking-[0.3em]">05 / ONBOARDING</div>
+                    <div class="text-[9px] font-bold text-gray-500 mb-4 tracking-[0.3em]">06 / ONBOARDING</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2">Near University Hub</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Ambassador contributing to onboarding, education, and community initiatives in the NEAR ecosystem.</p>
+                </div>
+
+                <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="community">
+                    <div class="text-[9px] font-bold text-gray-500 mb-4 tracking-[0.3em]">07 / MODERATION</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2">StarkNet Monsterz</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Community moderator managing daily engagement and day-to-day operations.</p>
+                </div>
+
+                <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="community">
+                    <div class="text-[9px] font-bold text-gray-500 mb-4 tracking-[0.3em]">08 / UNIVERSITY</div>
                     <h3 class="text-xl md:text-2xl font-bold mb-2">Pontem Network</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Led University Hub initiatives, onboarding and educating users on the Move ecosystem.</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Lead community builder for the University Hub; onboarded users and produced high-impact content.</p>
                 </div>
 
                 <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="community">
-                    <div class="text-[9px] font-bold text-gray-500 mb-4 tracking-[0.3em]">06 / ORACLES</div>
-                    <h3 class="text-xl md:text-2xl font-bold mb-2">Redstone</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Ambassador supporting content, education, and ecosystem awareness for oracles.</p>
+                    <div class="text-[9px] font-bold text-gray-500 mb-4 tracking-[0.3em]">09 / ECOSYSTEM</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2">Redstone Finance</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Ambassador supporting content, education, and awareness for oracle infrastructure.</p>
                 </div>
+
             </div>
         </section>
 
