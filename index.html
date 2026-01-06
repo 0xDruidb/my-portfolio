@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>0xDruid.eth | Web3 Builder</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -14,23 +14,9 @@
             background-color: #030303;
             color: #ffffff;
             scroll-behavior: smooth;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Prevents horizontal scroll */
+            width: 100%;
         }
-
-        /* Reeni-style Animations */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
-            100% { transform: translateY(0px); }
-        }
-
-        @keyframes reveal {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-reveal { animation: reveal 0.8s ease forwards; }
-        .animate-float { animation: float 5s ease-in-out infinite; }
 
         .reeni-gradient {
             background: linear-gradient(135deg, #fff 30%, #555 100%);
@@ -41,69 +27,61 @@
         .bento-card {
             background: rgba(18, 18, 18, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .bento-card:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-            background: rgba(28, 28, 28, 0.6);
-            transform: translateY(-8px);
+            transition: all 0.4s ease;
+            height: 100%;
         }
 
         .vibe-btn {
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .vibe-btn.active {
             background: #fff;
             color: #000;
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(255,255,255,0.15);
-        }
-
-        .project-item {
-            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
         .project-item.hidden {
             display: none;
-            opacity: 0;
+        }
+
+        /* Prevent large text from breaking layout on small phones */
+        .break-word {
+            word-wrap: break-word;
+            word-break: break-word;
         }
     </style>
 </head>
 <body class="selection:bg-white selection:text-black">
 
-    <nav class="fixed w-full z-[100] px-8 py-6 bg-[#030303]/70 backdrop-blur-2xl border-b border-white/5">
+    <nav class="fixed w-full z-[100] px-4 md:px-8 py-4 bg-[#030303]/80 backdrop-blur-xl border-b border-white/5">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="text-xl font-extrabold tracking-tighter uppercase">0xDruid.eth</div>
-            <div class="hidden md:flex space-x-12 text-[10px] uppercase tracking-[0.4em] font-bold text-gray-500">
-                <a href="#projects" class="hover:text-white transition">Experience</a>
-                <a href="mailto:zaprince822@gmail.com" class="hover:text-white transition underline underline-offset-8">Contact</a>
-            </div>
+            <div class="text-lg font-extrabold tracking-tighter uppercase">0xDruid.eth</div>
+            <a href="mailto:zaprince822@gmail.com" class="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 border border-white/10 px-3 py-1.5 rounded-full hover:text-white hover:border-white transition">Contact</a>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6 pt-40 pb-20">
+    <main class="max-w-7xl mx-auto px-5 pt-28 md:pt-40 pb-20 overflow-hidden">
         
-        <section class="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-40 items-center">
-            <div class="lg:col-span-7 animate-reveal">
-                <span class="inline-block px-4 py-1 bg-white/5 border border-white/10 rounded-full text-[9px] tracking-[0.3em] uppercase text-gray-400 mb-8 italic">
-                    Web3 Builder / Content Strategist / Operator
+        <section class="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-10 md:gap-16 mb-24 md:mb-40 items-center">
+            <div class="lg:col-span-7 w-full">
+                <span class="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[9px] tracking-[0.2em] uppercase text-gray-400 mb-6">
+                    Builder / Strategist / Operator
                 </span>
-                <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-8 leading-[0.85]">
+                <h1 class="text-5xl md:text-8xl font-extrabold tracking-tighter mb-6 leading-[1.1] md:leading-[0.85] break-word">
                     Crafting <br> <span class="reeni-gradient">On-Chain</span> <br> Value.
                 </h1>
                 
-                <div class="mb-12 p-1.5 bg-white/5 rounded-full inline-flex gap-1 border border-white/5 shadow-inner">
-                    <button onclick="setVibe('all')" class="vibe-btn active px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest" data-vibe="all">Default</button>
-                    <button onclick="setVibe('builder')" class="vibe-btn px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest" data-vibe="builder">Builder</button>
-                    <button onclick="setVibe('creator')" class="vibe-btn px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest" data-vibe="creator">Creator</button>
-                    <button onclick="setVibe('community')" class="vibe-btn px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest" data-vibe="community">Community</button>
+                <div class="mb-10 p-1.5 bg-white/5 rounded-2xl md:rounded-full flex flex-wrap gap-2 border border-white/5 w-fit">
+                    <button onclick="setVibe('all')" class="vibe-btn active px-4 md:px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest" data-vibe="all">Default</button>
+                    <button onclick="setVibe('builder')" class="vibe-btn px-4 md:px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest" data-vibe="builder">Builder</button>
+                    <button onclick="setVibe('creator')" class="vibe-btn px-4 md:px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest" data-vibe="creator">Creator</button>
+                    <button onclick="setVibe('community')" class="vibe-btn px-4 md:px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest" data-vibe="community">Social</button>
                 </div>
 
-                <div class="flex items-center gap-10">
-                    <a href="mailto:zaprince822@gmail.com" class="bg-white text-black px-12 py-5 rounded-full font-bold text-xs uppercase tracking-widest hover:invert transition-all active:scale-95">Message Me</a>
-                    <div class="flex gap-8 text-xl text-gray-600">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                    <a href="mailto:zaprince822@gmail.com" class="w-full sm:w-auto text-center bg-white text-black px-10 py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-gray-200 transition-all">Message Me</a>
+                    <div class="flex gap-8 text-xl text-gray-600 pl-2 sm:pl-0">
                         <a href="https://github.com/0xDruidb" target="_blank" class="hover:text-white transition-all"><i class="fab fa-github"></i></a>
                         <a href="https://x.com/0xdruid1" target="_blank" class="hover:text-white transition-all"><i class="fab fa-x-twitter"></i></a>
                         <a href="https://t.me/Zaprince" target="_blank" class="hover:text-white transition-all"><i class="fab fa-telegram"></i></a>
@@ -111,77 +89,61 @@
                 </div>
             </div>
             
-            <div class="lg:col-span-5 animate-float">
-                <div class="relative group">
-                    <div class="absolute -inset-4 bg-white/5 rounded-[3rem] blur-2xl group-hover:bg-white/10 transition duration-1000"></div>
-                    <div class="relative aspect-[4/5] md:aspect-square rounded-[2rem] overflow-hidden border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-1000 shadow-2xl">
-                        <img src="https://lh3.googleusercontent.com/d/1SCYEmHlisb_f5e43QhGeiO7zljMpNt_5" alt="0xDruid Avatar" class="w-full h-full object-cover">
-                    </div>
+            <div class="lg:col-span-5 w-full max-w-[400px] lg:max-w-full mx-auto">
+                <div class="relative group aspect-square rounded-[2rem] overflow-hidden border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-700 shadow-2xl">
+                    <img src="https://lh3.googleusercontent.com/d/1SCYEmHlisb_f5e43QhGeiO7zljMpNt_5" alt="0xDruid Avatar" class="w-full h-full object-cover">
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="mb-40">
-            <h2 class="text-4xl font-bold tracking-tighter mb-16">Ecosystem <span class="text-gray-600">Footprint</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
+        <section id="projects" class="mb-24 md:mb-40">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tighter mb-10 md:mb-16">Ecosystem <span class="text-gray-600">Footprint</span></h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8" id="project-grid">
                 
-                <div class="project-item bento-card p-10 rounded-[2.5rem]" data-category="builder">
-                    <div class="text-[9px] font-bold text-gray-500 mb-6 tracking-[0.3em]">01 / LEAD</div>
-                    <h3 class="text-2xl font-bold mb-3">ChainCredit</h3>
+                <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="builder">
+                    <div class="text-[9px] font-bold text-gray-500 mb-4 tracking-[0.3em]">01 / LEAD</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2">ChainCredit</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Founder; assembling developers and shaping product direction for future-facing on-chain credit tools.</p>
                 </div>
 
-                <div class="project-item bento-card p-10 rounded-[2.5rem]" data-category="builder">
-                    <div class="text-[9px] font-bold text-gray-500 mb-6 tracking-[0.3em]">02 / PAYMENTS</div>
-                    <h3 class="text-2xl font-bold mb-3">BravPay</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Founder; building a Telegram-based crypto payment bot for seamless social and group transactions.</p>
+                <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="builder">
+                    <div class="text-[9px] font-bold text-gray-500 mb-4 tracking-[0.3em]">02 / PAYMENTS</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2">BravPay</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Founder; building a Telegram-based crypto payment bot for seamless social transactions.</p>
                 </div>
 
-                <div class="project-item bento-card p-10 rounded-[2.5rem]" data-category="creator">
-                    <div class="text-[9px] font-bold text-gray-600 mb-6 tracking-[0.3em]">03 / DEX</div>
-                    <h3 class="text-2xl font-bold mb-3">Ston.fi</h3>
+                <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="creator">
+                    <div class="text-[9px] font-bold text-gray-600 mb-4 tracking-[0.3em]">03 / DEX</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2">Ston.fi</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Community contributor and creator supporting DEX awareness and user education.</p>
                 </div>
 
-                <div class="project-item bento-card p-10 rounded-[2.5rem]" data-category="creator">
-                    <div class="text-[9px] font-bold text-gray-600 mb-6 tracking-[0.3em]">04 / LST</div>
-                    <h3 class="text-2xl font-bold mb-3">ClayStack</h3>
+                <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="creator">
+                    <div class="text-[9px] font-bold text-gray-600 mb-4 tracking-[0.3em]">04 / LST</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2">ClayStack</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Ambassador and content creator focused on liquid staking education and growth.</p>
                 </div>
 
-                <div class="project-item bento-card p-10 rounded-[2.5rem]" data-category="community">
-                    <div class="text-[9px] font-bold text-gray-600 mb-6 tracking-[0.3em]">05 / ONBOARDING</div>
-                    <h3 class="text-2xl font-bold mb-3">Pontem Network</h3>
+                <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="community">
+                    <div class="text-[9px] font-bold text-gray-500 mb-4 tracking-[0.3em]">05 / ONBOARDING</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2">Pontem Network</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Led University Hub initiatives, onboarding and educating users on the Move ecosystem.</p>
                 </div>
 
-                <div class="project-item bento-card p-10 rounded-[2.5rem]" data-category="community">
-                    <div class="text-[9px] font-bold text-gray-600 mb-6 tracking-[0.3em]">06 / ORACLES</div>
-                    <h3 class="text-2xl font-bold mb-3">Redstone</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Ambassador supporting content, education, and ecosystem awareness for oracle systems.</p>
+                <div class="project-item bento-card p-8 md:p-10 rounded-[2rem]" data-category="community">
+                    <div class="text-[9px] font-bold text-gray-500 mb-4 tracking-[0.3em]">06 / ORACLES</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2">Redstone</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Ambassador supporting content, education, and ecosystem awareness for oracles.</p>
                 </div>
-
-                <div class="project-item bento-card p-10 rounded-[2.5rem]" data-category="community">
-                    <div class="text-[9px] font-bold text-gray-600 mb-6 tracking-[0.3em]">07 / INFRA</div>
-                    <h3 class="text-2xl font-bold mb-3">StarkNet Monsterz</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Community moderator managing daily engagement and growth operations.</p>
-                </div>
-
-                <div class="project-item bento-card p-10 rounded-[2.5rem]" data-category="builder">
-                    <div class="text-[9px] font-bold text-gray-600 mb-6 tracking-[0.3em]">08 / TESTING</div>
-                    <h3 class="text-2xl font-bold mb-3">Artura Finance</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Beta tester providing deep feedback and feature validation for long-term product health.</p>
-                </div>
-
             </div>
         </section>
 
-        <footer class="text-center py-40 border-t border-white/5 relative">
-            <h2 class="text-6xl md:text-9xl font-extrabold tracking-tighter mb-16 reeni-gradient italic">LET'S CONNECT.</h2>
-            <div class="flex flex-col items-center gap-10">
-                <a href="mailto:zaprince822@gmail.com" class="text-2xl font-light hover:text-gray-400 transition-all">zaprince822@gmail.com</a>
-                <div class="flex justify-center gap-12 text-[10px] uppercase tracking-[0.5em] font-bold text-gray-600">
-                    <a href="https://x.com/0xdruid1" target="_blank" class="hover:text-white transition">X/Twitter</a>
+        <footer class="text-center py-20 md:py-40 border-t border-white/5">
+            <h2 class="text-5xl md:text-9xl font-extrabold tracking-tighter mb-10 md:mb-16 reeni-gradient italic">LET'S BUILD.</h2>
+            <div class="flex flex-col items-center gap-8">
+                <a href="mailto:zaprince822@gmail.com" class="text-lg md:text-2xl font-light hover:text-gray-400 transition-all break-all">zaprince822@gmail.com</a>
+                <div class="flex flex-wrap justify-center gap-8 md:gap-12 text-[10px] uppercase tracking-[0.3em] font-bold text-gray-600">
+                    <a href="https://x.com/0xdruid1" target="_blank" class="hover:text-white transition">Twitter</a>
                     <a href="https://github.com/0xDruidb" target="_blank" class="hover:text-white transition">GitHub</a>
                     <a href="https://t.me/Zaprince" target="_blank" class="hover:text-white transition">Telegram</a>
                 </div>
@@ -204,7 +166,6 @@
                 const category = item.getAttribute('data-category');
                 if (vibe === 'all' || category === vibe) {
                     item.classList.remove('hidden');
-                    item.style.order = (category === vibe) ? "-1" : "0";
                 } else {
                     item.classList.add('hidden');
                 }
